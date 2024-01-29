@@ -17,3 +17,7 @@ variable "cluster_name" {
 variable "cluster_version" {
   default = "tech-challenge-eks"
 }
+
+variable "env_name" {
+  default = "stagging"
+}
