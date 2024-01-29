@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: fiap
+  name: auth-service
+  labels:
+    app: auth-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auth-service
+  template:
+    metadata:
+      labels:
+        app: auth-service
+    spec:
+      containers:
+        - name: auth-service
+          image: mauricio1998/auth-service
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3003
+          volumeMounts:
+            - name: auth-service
+              subPath: config.yaml
+              mountPath: /go/app/config.yaml
+      volumes:
+        - name: auth-service
+          configMap:
+            name: "auth-service"
