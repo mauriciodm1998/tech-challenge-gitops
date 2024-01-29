@@ -1,0 +1,15 @@
+apiVersion: v1
+data:
+  config.yaml: |
+    server:
+      port: 3003
+    token:
+      key: "dnVJWGFPSzRPcEpXQTl5U1gxVVRwSVdzaFhQcFA2bmVHS0dBNzI0RmF1WQ=="
+    db:
+      connectionString: host=user-postgres.fiap.svc.cluster.local port=5432 dbname=fiap_tech_challenge user=postgres password=1234 sslmode=disable
+kind: ConfigMap
+metadata:
+  labels:
+    app: auth-service
+  name: auth-service
+  namespace: fiap
